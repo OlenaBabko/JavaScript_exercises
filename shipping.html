@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+</head>
+
+<body>
+    <pre>
+        Задание:
+        Доработайте сценарий. Добавьте расчет скидки. 
+        Если заказ от 500, скидка 5%, если заказ от 1000 скидка 10%,
+        если заказ от 1500 скидка 15% и доставка бесплатная.
+        Выведите пользователю стоимость заказа с учётом скидки и сумму скидки, которую
+        он получил. Также информацию о стоимости доставки, если она была заказана.
+        Используйте подходящую условную конструкцию.
+    </pre>
+    <script>
+        let product1 = "Бумага офисная А4, 80 г/м2, 500 л";
+        let product2 = "Биндеры для бумаги 51 мм";
+        let product3 = "Ручка шариковая синяя";
+
+        let productPrice1 = 280.25;
+        let productPrice2 = 56;
+        let productPrice3 = 12.50;
+
+        let productQuantity1 = prompt(`Укажите количество продуктов '${product1}', цена ${productPrice1}`, 0);
+        let productQuantity2 = prompt(`Укажите количество продуктов '${product2}', цена ${productPrice2}`, 0);
+        let productQuantity3 = prompt(`Укажите количество продуктов '${product3}', цена ${productPrice3}`, 0);
+
+        let totalPriceProduct1 = productPrice1 * productQuantity1;
+        let totalPriceProduct2 = productPrice2 * productQuantity2;
+        let totalPriceProduct3 = productPrice3 * productQuantity3;
+
+        let total = totalPriceProduct1 + totalPriceProduct2 + totalPriceProduct3;
+        alert(`Total amount for product ${product1} = ${totalPriceProduct1}\r\nTotal amount for product ${product2} = ${totalPriceProduct2}\r\nTotal amount for product 3 '${product3}' = ${totalPriceProduct3}`);
+        alert(`In total ${total}`);
+        alert("If the order is 500 - the discount is 5%,\r\n1000 - discount is 10%,\r\n1500 - the discount is 15% and free delivery");
+        
+        let discount;
+        if (total >= 500 && total < 1000) {
+            discount = 0.05;
+            alert(`Your discount is 5%`);
+        }
+        else if (total >= 1000 && total < 1500) {
+                discount = 0.10;
+                alert(`Your discount is 10%`);
+        }
+        else if (total >= 1500) {
+            discount = 0.15;
+            alert(`Your discount is 15%`);
+        }
+        else {
+            alert(`Your have no discount`);
+        }
+        
+        let shippingPrice;
+        let shipping = confirm("Add delivery by courier?");
+        if (shipping && total < 1500) {
+            shippingPrice = 40;
+            alert("Delivery costs 40");
+        }
+        else if (shipping && total > 1500) {
+            shippingPrice = 0;
+            alert("Delivery is free");
+        }
+        else {
+            shippingPrice = 0;
+            alert("you choose not to have delivery");
+        }
+
+        let finalPayment = total - (total * discount) + shippingPrice;
+        alert(`Your have to pay ${finalPayment}`);
+    </script>
+</body>
+
+</html>
