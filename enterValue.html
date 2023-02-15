@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+<body>
+    <pre>
+        Задание:
+        Напишите сценарий, который должен получить у пользователя значение больше 10.
+        Если пользователь ввел значение меньше 10 запросите значение еще раз и так до тех пор, пока пользователь не введет корректное значение.
+        Предусматривать обработку нечисловых значений не обязательно.
+    </pre>
+    <script>
+        let message = +prompt("Enter value for n > 10: ");
+        while (message < 10) {
+            message = +prompt("Enter value for n > 10: ");
+        }
+        alert(`Your value for n is ${message}`);
+
+        // or
+        // do {
+        //     message = +prompt("Enter value for n > 10: ");
+        // }
+        // while (message < 10);
+        // alert(`Your value for n is ${message}`);
+   
+    </script>
+</body>
+</html>
