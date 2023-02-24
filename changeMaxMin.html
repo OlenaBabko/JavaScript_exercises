@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6</title>
+</head>
+<body>
+    <pre>
+        Задание:
+        Дано массив. Поменяйте элемент с максимальным значением
+        местами с элементом с минимальным значением.
+    </pre>
+    <script>
+        let values = [10, 20, 4, 6, 11, 9, 125, 1, 8, 0, 3];
+        let minimal = Number.MAX_VALUE;
+        let maximal = Number.MIN_VALUE;
+        let minimalElIndex;
+        let maximalElIndex;
+
+        for (let i = 0; i < values.length; i++) {
+            if (values[i] < minimal) {
+                minimal = values[i];
+                minimalElIndex = i;
+            }
+            if (values[i] > maximal) {
+                maximal = values[i];
+                maximalElIndex = i;
+            }
+        }
+        values[minimalElIndex] = maximal;
+        values[maximalElIndex] = minimal;
+        alert(values);
+
+
+    </script>
+</body>
+</html>
